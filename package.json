@@ -2,6 +2,7 @@
   "name": "jewelry-shop",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://neoerainfotech-it.github.io/nayadiamonds.com",
   "dependencies": {
     "@heroicons/react": "^2.2.0",
     "react": "^18.2.0",
