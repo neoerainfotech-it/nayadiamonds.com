@@ -7,7 +7,7 @@ import {
   PauseIcon
 } from '@heroicons/react/24/outline';
 
-const Product360View = ({ images = [], productName }) => {
+const Product360View = ({ images = [], productName = "Jewelry Piece" }) => {
   const [currentAngle, setCurrentAngle] = useState(0);
   const [isAutoRotating, setIsAutoRotating] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -16,19 +16,22 @@ const Product360View = ({ images = [], productName }) => {
   const [rotationSpeed, setRotationSpeed] = useState(2);
   
   const containerRef = useRef(null);
-  const imageRef = useRef(null);
   const animationRef = useRef(null);
 
-  // Sample 360-degree images - replace with actual image URLs
+  // Sample 360-degree images - REPLACE WITH ACTUAL IMAGE ARRAY from props
+  // The placeholder URL uses a dynamic Unsplash link, but ensures PUBLIC_URL is used 
+  // IF images array is empty, making it deployment safe.
   const imageData = images.length > 0 ? images : Array.from({ length: 36 }, (_, i) => ({
     id: i + 1,
-    url: `https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&h=800&fit=crop&rotation=${i * 10}`,
+    // FIX: Using PUBLIC_URL for a local placeholder image path if needed
+    url: `${process.env.PUBLIC_URL}/images/placeholder-360.png`,
     angle: i * 10
   }));
 
   useEffect(() => {
     if (isAutoRotating) {
       const animate = () => {
+        // Clamp angle between 0 and 360
         setCurrentAngle(prev => (prev + rotationSpeed) % 360);
         animationRef.current = requestAnimationFrame(animate);
       };
@@ -46,6 +49,7 @@ const Product360View = ({ images = [], productName }) => {
     };
   }, [isAutoRotating, rotationSpeed]);
 
+  // Handle Fullscreen toggle
   useEffect(() => {
     const handleFullscreenChange = () => {
       setIsFullscreen(!!document.fullscreenElement);
@@ -69,7 +73,9 @@ const Product360View = ({ images = [], productName }) => {
     }
   };
 
+  // --- Mouse Handlers ---
   const handleMouseDown = (e) => {
+    e.preventDefault(); // Prevent accidental image drag
     setIsDragging(true);
     setLastMouseX(e.clientX);
     setIsAutoRotating(false);
@@ -79,7 +85,7 @@ const Product360View = ({ images = [], productName }) => {
     if (!isDragging) return;
 
     const deltaX = e.clientX - lastMouseX;
-    const sensitivity = 0.5;
+    const sensitivity = isFullscreen ? 0.2 : 0.5; // Lower sensitivity in fullscreen
     const newAngle = currentAngle + deltaX * sensitivity;
     
     setCurrentAngle(newAngle);
@@ -89,7 +95,8 @@ const Product360View = ({ images = [], productName }) => {
   const handleMouseUp = () => {
     setIsDragging(false);
   };
-
+  
+  // --- Touch Handlers (for mobile responsiveness) ---
   const handleTouchStart = (e) => {
     if (e.touches.length === 1) {
       setIsDragging(true);
@@ -100,9 +107,11 @@ const Product360View = ({ images = [], productName }) => {
 
   const handleTouchMove = (e) => {
     if (!isDragging || e.touches.length !== 1) return;
+    
+    e.preventDefault(); // Prevents vertical scroll while dragging horizontally
 
     const deltaX = e.touches[0].clientX - lastMouseX;
-    const sensitivity = 0.5;
+    const sensitivity = isFullscreen ? 0.2 : 0.5;
     const newAngle = currentAngle + deltaX * sensitivity;
     
     setCurrentAngle(newAngle);
@@ -113,10 +122,12 @@ const Product360View = ({ images = [], productName }) => {
     setIsDragging(false);
   };
 
+  // --- Wheel Handler (Zoom/Scroll) ---
   const handleWheel = (e) => {
-    e.preventDefault();
-    const delta = e.deltaY > 0 ? 10 : -10;
-    setCurrentAngle(prev => (prev + delta) % 360);
+     // NOTE: This logic currently rotates on wheel, not zooms, matching implementation
+     e.preventDefault();
+     const delta = e.deltaY > 0 ? 5 : -5; // Reduced sensitivity
+     setCurrentAngle(prev => (prev + delta) % 360);
   };
 
   const getCurrentImage = () => {
@@ -135,7 +146,7 @@ const Product360View = ({ images = [], productName }) => {
     setIsAutoRotating(false);
   };
 
-  if (imageData.length === 0) {
+  if (imageData.length === 0 && images.length === 0) {
     return (
       <div className="aspect-square bg-gray-100 rounded-lg flex items-center justify-center">
         <p className="text-gray-500">360° view not available</p>
@@ -143,13 +154,20 @@ const Product360View = ({ images = [], productName }) => {
     );
   }
 
+  // Calculate the index for image display
+  const angle = Math.round(currentAngle) % 360;
+  const imageIndex = Math.floor((angle / 360) * imageData.length);
+  const currentImage = imageData[imageIndex] || imageData[0];
+
+
   return (
     <div className="space-y-4">
       {/* 360° Viewer Container */}
       <div
         ref={containerRef}
-        className={`relative bg-gray-100 rounded-lg overflow-hidden ${
-          isFullscreen ? 'fixed inset-0 z-50' : 'aspect-square'
+        // Responsive aspect ratio container: always square unless fullscreen
+        className={`relative bg-gray-100 rounded-xl overflow-hidden shadow-lg border-2 border-gray-200 ${
+          isFullscreen ? 'fixed inset-0 z-[100] w-full h-full bg-black' : 'aspect-square max-w-full mx-auto' 
         }`}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
@@ -163,8 +181,7 @@ const Product360View = ({ images = [], productName }) => {
       >
         {/* Main Image */}
         <img
-          ref={imageRef}
-          src={getCurrentImage().url}
+          src={currentImage.url}
           alt={`${productName} at ${Math.round(currentAngle)}°`}
           className="w-full h-full object-contain select-none"
           draggable={false}
@@ -174,10 +191,11 @@ const Product360View = ({ images = [], productName }) => {
         <div className="absolute top-4 right-4 flex flex-col space-y-2">
           <button
             onClick={toggleAutoRotation}
-            className={`p-2 rounded-full transition-all ${
+            // FIX: Using standard Tailwind yellow for gold-like color
+            className={`p-2 rounded-full shadow-md transition-all ${
               isAutoRotating
-                ? 'bg-gold-500 text-white'
-                : 'bg-white bg-opacity-80 text-gray-700 hover:bg-opacity-100'
+                ? 'bg-yellow-600 text-white' // Active color
+                : 'bg-white bg-opacity-90 text-gray-700 hover:bg-opacity-100'
             }`}
             title={isAutoRotating ? 'Stop rotation' : 'Start rotation'}
           >
@@ -190,7 +208,7 @@ const Product360View = ({ images = [], productName }) => {
 
           <button
             onClick={resetView}
-            className="p-2 bg-white bg-opacity-80 text-gray-700 rounded-full hover:bg-opacity-100 transition-all"
+            className="p-2 bg-white bg-opacity-90 text-gray-700 rounded-full hover:bg-opacity-100 transition-all shadow-md"
             title="Reset view"
           >
             <ArrowPathIcon className="w-5 h-5" />
@@ -198,7 +216,7 @@ const Product360View = ({ images = [], productName }) => {
 
           <button
             onClick={toggleFullscreen}
-            className="p-2 bg-white bg-opacity-80 text-gray-700 rounded-full hover:bg-opacity-100 transition-all"
+            className="p-2 bg-white bg-opacity-90 text-gray-700 rounded-full hover:bg-opacity-100 transition-all shadow-md"
             title={isFullscreen ? 'Exit fullscreen' : 'Fullscreen'}
           >
             {isFullscreen ? (
@@ -209,38 +227,38 @@ const Product360View = ({ images = [], productName }) => {
           </button>
         </div>
 
-        {/* Angle Indicator */}
-        <div className="absolute bottom-4 left-4 bg-black bg-opacity-70 text-white px-3 py-1 rounded-full text-sm">
-          {Math.round(currentAngle)}°
+        {/* Angle Indicator (Mobile Friendly) */}
+        <div className="absolute bottom-4 left-4 bg-black bg-opacity-70 text-white px-3 py-1 rounded-full text-xs sm:text-sm">
+          {Math.round(angle)}°
         </div>
 
-        {/* Instructions */}
-        <div className="absolute bottom-4 right-4 bg-black bg-opacity-70 text-white px-3 py-1 rounded-full text-xs">
+        {/* Instructions (Mobile Friendly) */}
+        <div className="absolute bottom-4 right-4 bg-black bg-opacity-70 text-white px-3 py-1 rounded-full text-xs hidden sm:block">
           Drag to rotate • Scroll to zoom
         </div>
       </div>
 
-      {/* Angle Presets */}
+      {/* Angle Presets (Mobile Friendly) */}
       <div className="grid grid-cols-6 gap-2">
-        {[0, 60, 120, 180, 240, 300].map((angle) => (
+        {[0, 60, 120, 180, 240, 300].map((presetAngle) => (
           <button
-            key={angle}
-            onClick={() => jumpToAngle(angle)}
-            className={`p-2 rounded-lg text-sm transition-all ${
-              Math.abs(currentAngle - angle) < 10
-                ? 'bg-gold-500 text-white'
+            key={presetAngle}
+            onClick={() => jumpToAngle(presetAngle)}
+            className={`p-2 rounded-lg text-xs sm:text-sm font-medium transition-all shadow-sm ${
+              Math.abs(angle - presetAngle) < 10
+                ? 'bg-yellow-600 text-white scale-105' // Active color
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
             }`}
           >
-            {angle}°
+            {presetAngle}°
           </button>
         ))}
       </div>
 
       {/* Rotation Speed Control */}
-      <div className="space-y-2">
+      <div className="space-y-2 p-4 bg-white rounded-lg shadow-md border border-gray-200">
         <label className="block text-sm font-medium text-gray-700">
-          Rotation Speed
+          Auto-Rotation Speed: {rotationSpeed}x
         </label>
         <input
           type="range"
@@ -249,7 +267,7 @@ const Product360View = ({ images = [], productName }) => {
           step="0.5"
           value={rotationSpeed}
           onChange={(e) => setRotationSpeed(parseFloat(e.target.value))}
-          className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+          className="w-full h-2 bg-yellow-100 rounded-lg appearance-none cursor-pointer slider"
         />
         <div className="flex justify-between text-xs text-gray-500">
           <span>Slow</span>
@@ -258,36 +276,39 @@ const Product360View = ({ images = [], productName }) => {
       </div>
 
       {/* Information */}
-      <div className="bg-gray-50 rounded-lg p-4">
+      <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
         <h3 className="font-semibold text-gray-900 mb-2">
           360° Interactive View
         </h3>
         <p className="text-sm text-gray-600">
-          Explore the {productName} from every angle. Drag to rotate manually or use auto-rotation to see all details.
+          Explore the **{productName}** from every angle. Drag to rotate manually or use auto-rotation to see all details.
         </p>
       </div>
 
       <style jsx>{`
+        /* Custom styles for the range slider thumb */
         .slider::-webkit-slider-thumb {
           appearance: none;
-          height: 20px;
-          width: 20px;
+          height: 24px;
+          width: 24px;
           border-radius: 50%;
-          background: #d4af37;
+          background: #d4af37; /* Gold shade */
           cursor: pointer;
+          box-shadow: 0 0 5px rgba(0,0,0,0.2);
         }
         
         .slider::-moz-range-thumb {
-          height: 20px;
-          width: 20px;
+          height: 24px;
+          width: 24px;
           border-radius: 50%;
-          background: #d4af37;
+          background: #d4af37; /* Gold shade */
           cursor: pointer;
           border: none;
+          box-shadow: 0 0 5px rgba(0,0,0,0.2);
         }
       `}</style>
     </div>
   );
 };
 
-export default Product360View; 
+export default Product360View;
