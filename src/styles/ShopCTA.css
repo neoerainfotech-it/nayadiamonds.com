@@ -1,0 +1,145 @@
+
+/* Animated CTA Styles for Vamana Collections */
+
+.cta-container {
+  width: 100%;
+  max-width: 1000px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  margin: 40px auto;
+  background: #f8f5f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.cta-inner {
+  background: #f8f5f2;
+  padding: 60px 40px;
+  position: relative;
+  overflow: hidden;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #22223b;
+  transition: all 0.5s ease;
+}
+.cta-inner:hover {
+  background: #f3e8ff;
+}
+
+.corner-image {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.top-left { top: -100px; left: -100px; }
+.top-right { top: -100px; right: -100px; }
+.bottom-left { bottom: -100px; left: -100px; }
+.bottom-right { bottom: -100px; right: -100px; }
+.cta-container:hover .top-left { top: 20px; left: 20px; opacity: 1; }
+.cta-container:hover .top-right { top: 20px; right: 20px; opacity: 1; }
+.cta-container:hover .bottom-left { bottom: 20px; left: 20px; opacity: 1; }
+.cta-container:hover .bottom-right { bottom: 20px; right: 20px; opacity: 1; }
+
+.cta-content {
+  position: relative;
+  z-index: 20;
+  max-width: 600px;
+}
+.cta-subtitle, .cta-title, .cta-description {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.5s ease;
+}
+.cta-button-wrapper {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  opacity: 1 !important;
+  z-index: 99 !important;
+  position: relative;
+}
+.cta-container:hover .cta-subtitle {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+.cta-container:hover .cta-title {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+.cta-container:hover .cta-description {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
+}
+.cta-container:hover .cta-button-wrapper {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+.cta-description {
+  font-size: 1.1rem;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+
+.cta-button {
+  display: inline-block;
+  background-color: #6366f1;
+  color: #fff;
+  font-weight: 600;
+  padding: 14px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 1.15rem;
+}
+.cta-button:hover {
+  background-color: #4f46e5;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.cta-plain-button {
+  margin-top: 32px;
+  padding: 12px 28px;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  border: 1px solid #6366f1;
+  background: #fff;
+  color: #6366f1;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+}
+.cta-plain-button:hover {
+  background: #6366f1;
+  color: #fff;
+}
+@media (max-width: 768px) {
+  .cta-inner {
+    padding: 40px 20px;
+    height: 350px;
+  }
+  .cta-title {
+    font-size: 2rem;
+  }
+  .corner-image {
+    width: 80px;
+    height: 80px;
+  }
+}

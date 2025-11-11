@@ -1,0 +1,100 @@
+.material-carousel-wrapper {
+  text-align: center;
+  margin: 80px auto;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.material-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #4a4a4a;
+}
+
+.material-carousel-container {
+  width: 100%;
+  height: 320px; /* Increased height */
+  position: relative;
+  overflow: visible; /* Allow side cards to show */
+  cursor: pointer;
+  margin-bottom: 40px;
+}
+
+.material-carousel-track {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease-in-out;
+}
+
+.material-card {
+  position: absolute;
+  width: 320px;   /* Increased width */
+  height: 240px;  /* Increased height */
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+  transition: all 0.5s cubic-bezier(.4,2.08,.55,.44);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.material-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.material-name {
+  padding: 16px 0 8px 0;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #082a7b;
+  background: #fff;
+}
+
+.material-card.center {
+  z-index: 10;
+  transform: scale(1.1) translateZ(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.material-card.left-1 {
+  transform: translateX(-60px) scale(0.95);
+  z-index: 5;
+  opacity: 0.85;
+  pointer-events: auto;
+}
+
+.material-card.right-1 {
+  transform: translateX(60px) scale(0.95);
+  z-index: 5;
+  opacity: 0.85;
+  pointer-events: auto;
+}
+
+.material-card.right-2 {
+  transform: translateX(130px) scale(0.85);
+  z-index: 1;
+  opacity: 0.5;
+}
+
+.material-card.left-2 {
+  transform: translateX(-130px) scale(0.85);
+  z-index: 1;
+  opacity: 0.5;
+}
+
+.material-card.hidden {
+  opacity: 0;
+  pointer-events: none;
+}

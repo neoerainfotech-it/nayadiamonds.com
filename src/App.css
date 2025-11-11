@@ -1,0 +1,124 @@
+/* Fade-in animation for Carousel content */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fade-in 0.8s cubic-bezier(0.4,0,0.2,1);
+}
+/* Carousel Banner Zoom In/Out and Slide Effect */
+.carousel-slide {
+  opacity: 0;
+  transform: scale(0.96) translateX(40px);
+  transition: opacity 0.8s cubic-bezier(0.4,0,0.2,1), transform 0.8s cubic-bezier(0.4,0,0.2,1);
+  z-index: 1;
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+}
+.carousel-slide.active {
+  opacity: 1;
+  transform: scale(1.08) translateX(0);
+  z-index: 2;
+  animation: carousel-zoom-in 1.2s cubic-bezier(0.4,0,0.2,1);
+}
+.carousel-slide.prev {
+  opacity: 0;
+  transform: scale(0.96) translateX(-40px);
+  z-index: 1;
+}
+@keyframes carousel-zoom-in {
+  0% {
+    transform: scale(0.96) translateX(40px);
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.08) translateX(0);
+    opacity: 1;
+  }
+}
+/* ProductGallery Zoom In/Out and Slide Effect */
+.gallery-image {
+  opacity: 0;
+  transform: scale(0.95) translateX(40px);
+  transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1);
+  z-index: 1;
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+}
+.gallery-image.active {
+  opacity: 1;
+  transform: scale(1.08) translateX(0);
+  z-index: 2;
+  animation: gallery-zoom-in 1.2s cubic-bezier(0.4,0,0.2,1);
+}
+.gallery-image.prev {
+  opacity: 0;
+  transform: scale(0.95) translateX(-40px);
+  z-index: 1;
+}
+@keyframes gallery-zoom-in {
+  0% {
+    transform: scale(0.95) translateX(40px);
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.08) translateX(0);
+    opacity: 1;
+  }
+}
+/* Ken Burns effect for Carousel */
+.kenburns-animate {
+  animation: kenburns 7s ease-in-out both;
+}
+@keyframes kenburns {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  100% {
+    transform: scale(1.12) translate(-2%, -2%);
+  }
+}
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
