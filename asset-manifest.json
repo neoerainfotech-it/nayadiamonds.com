@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/nayadiamonds.com/static/css/main.05850666.css",
-    "main.js": "/nayadiamonds.com/static/js/main.cc487125.js",
-    "static/js/453.5f1f6a2c.chunk.js": "/nayadiamonds.com/static/js/453.5f1f6a2c.chunk.js",
-    "static/media/slick.svg": "/nayadiamonds.com/static/media/slick.2630a3e3eab21c607e21.svg",
-    "static/media/slick.eot": "/nayadiamonds.com/static/media/slick.a4e97f5a2a64f0ab1323.eot",
-    "static/media/slick.ttf": "/nayadiamonds.com/static/media/slick.c94f7671dcc99dce43e2.ttf",
-    "static/media/slick.woff": "/nayadiamonds.com/static/media/slick.295183786cd8a1389865.woff",
-    "index.html": "/nayadiamonds.com/index.html",
-    "main.05850666.css.map": "/nayadiamonds.com/static/css/main.05850666.css.map",
-    "main.cc487125.js.map": "/nayadiamonds.com/static/js/main.cc487125.js.map",
-    "453.5f1f6a2c.chunk.js.map": "/nayadiamonds.com/static/js/453.5f1f6a2c.chunk.js.map"
+    "main.css": "/static/css/main.8840a2b3.css",
+    "main.js": "/static/js/main.78b1f15d.js",
+    "static/js/488.6b857299.chunk.js": "/static/js/488.6b857299.chunk.js",
+    "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/index.html",
+    "main.8840a2b3.css.map": "/static/css/main.8840a2b3.css.map",
+    "main.78b1f15d.js.map": "/static/js/main.78b1f15d.js.map",
+    "488.6b857299.chunk.js.map": "/static/js/488.6b857299.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.05850666.css",
-    "static/js/main.cc487125.js"
+    "static/css/main.8840a2b3.css",
+    "static/js/main.78b1f15d.js"
   ]
 }
