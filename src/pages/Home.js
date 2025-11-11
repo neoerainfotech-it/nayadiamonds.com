@@ -17,6 +17,7 @@ import CustomerReviewCarousel from '../components/CustomerReviewCarousel';
 function Home() {
   // --- Local images (use PUBLIC_URL so CRA builds correct paths) ---
   const localImages = [
+<<<<<<< HEAD
     process.env.PUBLIC_URL + '/images/design1.jpg',
     process.env.PUBLIC_URL + '/images/design2.jpg',
     process.env.PUBLIC_URL + '/images/design3.jpg',
@@ -41,6 +42,14 @@ function Home() {
     process.env.PUBLIC_URL + '/images/necklace_101.jpg',
     process.env.PUBLIC_URL + '/images/bracelet_039.jpg',
     process.env.PUBLIC_URL + '/images/bracelet_040.jpg'
+=======
+    './images/design1.jpg', '/images/design2.jpg', '/images/design3.jpg', '/images/design4.jpg',
+    '/images/design5.jpg', '/images/design6.jpg', '/images/design7.jpg', '/images/design8.jpg',
+    '/images/design9.jpg', '/images/design10.jpg', '/images/ring_041.jpg', '/images/ring_042.jpg',
+    '/images/ring_043.jpg', '/images/ring_044.jpg', '/images/ring_045.jpg', '/images/ring_046.jpg',
+    '/images/earring_1.jpg', '/images/earring_2.jpg', '/images/earring_3.jpg', '/images/earring_4.jpg',
+    '/images/necklace_100.jpg', '/images/necklace_101.jpg', '/images/bracelet_039.jpg', '/images/bracelet_040.jpg'
+>>>>>>> fc7af602c089ea64c583589e03d6197bf7b44692
   ];
  
   function shuffleArray(array) {
@@ -344,5 +353,9 @@ function Home() {
     </div>
   );
 }
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> fc7af602c089ea64c583589e03d6197bf7b44692
 export default Home;
