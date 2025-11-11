@@ -6,25 +6,25 @@ import { Link } from 'react-router-dom';
 const materialItems = [
   {
     title: "Gold",
-    // FIX: Using PUBLIC_URL for deployment path resolution
+    // FIX: Removed leading slash on 'images/design3.jpg'
     img: process.env.PUBLIC_URL + "images/design3.jpg", 
     link: "/category/gold",
   },
   {
     title: "Diamond",
-    // FIX: Using PUBLIC_URL for deployment path resolution
+    // FIX: Removed leading slash on 'images/design10.jpg'
     img: process.env.PUBLIC_URL + "images/design10.jpg",
     link: "/category/diamond",
   },
   {
     title: "Silver",
-    // FIX: Using PUBLIC_URL for deployment path resolution
+    // FIX: Removed leading slash on 'images/ring_041.jpg'
     img: process.env.PUBLIC_URL + "images/ring_041.jpg",
     link: "/category/silver",
   },
   {
     title: "Platinum",
-    // FIX: Using PUBLIC_URL for deployment path resolution
+    // FIX: Removed leading slash on 'images/design17.jpg'
     img: process.env.PUBLIC_URL + "images/design17.jpg",
     link: "/category/platinum",
   },
