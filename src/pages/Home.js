@@ -21,7 +21,7 @@ function Home() {
 
   // --- New Arrivals (sample, use local images) ---
   const localImages = [
-    '/images/design1.jpg', '/images/design2.jpg', '/images/design3.jpg', '/images/design4.jpg',
+    './images/design1.jpg', '/images/design2.jpg', '/images/design3.jpg', '/images/design4.jpg',
     '/images/design5.jpg', '/images/design6.jpg', '/images/design7.jpg', '/images/design8.jpg',
     '/images/design9.jpg', '/images/design10.jpg', '/images/ring_041.jpg', '/images/ring_042.jpg',
     '/images/ring_043.jpg', '/images/ring_044.jpg', '/images/ring_045.jpg', '/images/ring_046.jpg',
