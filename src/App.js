@@ -61,7 +61,7 @@ function App() {
   return (
     <AuthProvider>
       <BagProvider>
-        <Router>
+        <Router basename="/nayadiamonds.com">
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
