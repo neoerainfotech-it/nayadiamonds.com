@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// Assuming this component will be saved as src/components/Carousel.js
 
 const slideData = [
   {
@@ -9,8 +8,8 @@ const slideData = [
       "Exquisite craftsmanship meets timeless elegance. Our signature Collection features ethically sourced diamonds set in 18k gold.",
     buttonText: "Shop Now",
     buttonLink: "/products",
-    // FIX: Using process.env.PUBLIC_URL for deployment path correction
-    background: `url(${process.env.PUBLIC_URL}images/banner1.jpg) center/cover no-repeat`,
+    // FIX: Ensure a slash separates PUBLIC_URL and the image path
+    background: `url(${process.env.PUBLIC_URL}/images/banner1.jpg) center/cover no-repeat`,
   },
   {
     id: 2,
@@ -19,8 +18,8 @@ const slideData = [
       "Inspired by royal heritage, our collection combines traditional designs with contemporary craftsmanship for the modern connoisseur.",
     buttonText: "Explore Collection",
     buttonLink: "/Collections",
-    // FIX: Using process.env.PUBLIC_URL for deployment path correction
-    background: `url(${process.env.PUBLIC_URL}images/ddhome.jpeg) center/cover no-repeat`,
+    // FIX: Ensure a slash separates PUBLIC_URL and the image path
+    background: `url(${process.env.PUBLIC_URL}/images/ddhome.jpeg) center/cover no-repeat`,
   },
   {
     id: 3,
@@ -29,15 +28,15 @@ const slideData = [
       "Commission a unique piece tailored to your vision. Our master jewelers transform your dreams into wearable art.",
     buttonText: "Book Consultation",
     buttonLink: "/Contact",
-    // FIX: Using process.env.PUBLIC_URL for deployment path correction
-    background: `url(${process.env.PUBLIC_URL}images/banner4.jpeg) center/cover no-repeat`,
+    // FIX: Ensure a slash separates PUBLIC_URL and the image path
+    background: `url(${process.env.PUBLIC_URL}/images/banner4.jpeg) center/cover no-repeat`,
   },
 ];
 
 function Carousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Auto slide interval
+  // Auto slide interval (rest of the component logic is unchanged)
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slideData.length);
@@ -58,15 +57,14 @@ function Carousel() {
   };
 
   return (
-    // Responsive container and styling using inline styles (can be complex on mobile)
+    // Component JSX remains the same
     <div 
       className="carousel-container" 
       style={{ 
         position: 'relative', 
         overflow: 'hidden', 
-        height: '100vh', // Full viewport height for desktop
+        height: '100vh', 
         width: '100%',
-        // Added max-height for better mobile viewing if needed, but 100vh is fine for a hero carousel
       }}
     >
       {slideData.map((slide, index) => (
@@ -89,7 +87,7 @@ function Carousel() {
             className="slide-image"
             style={{
               background: slide.background,
-              backgroundSize: 'cover', // Ensuring coverage on all screens
+              backgroundSize: 'cover', 
               position: 'absolute',
               top: 0,
               left: 0,
@@ -101,7 +99,7 @@ function Carousel() {
             }}
           ></div>
           
-          {/* Content Overlay */}
+          {/* Content Overlay (omitted for brevity) */}
           <div
             className="slide-content"
             style={{
@@ -109,19 +107,19 @@ function Carousel() {
               bottom: 0,
               left: 0,
               width: '100%',
-              padding: '6rem 4rem', // Added horizontal padding for desktop
+              padding: '6rem 4rem', 
               background: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%)',
               zIndex: 2,
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'flex-start',
-              color: '#fff', // Ensure all text is white by default
+              color: '#fff', 
             }}
           >
-            {/* Title (Mobile adjustment via media queries if Tailwind isn't used) */}
+            {/* Title */}
             <h2 className="slide-title" style={{
-              fontSize: '2rem', // Reduced default for better mobile fit
-              '@media (min-width: 768px)': { fontSize: '3rem' }, // Adjusting font size on larger screens
+              fontSize: '2rem', 
+              '@media (min-width: 768px)': { fontSize: '3rem' }, 
               fontWeight: 600, 
               marginBottom: '1rem', 
               textTransform: 'uppercase', 
@@ -134,7 +132,7 @@ function Carousel() {
             
             {/* Description */}
             <p className="slide-description" style={{
-              fontSize: '1rem', // Reduced default for better mobile fit
+              fontSize: '1rem', 
               '@media (min-width: 768px)': { fontSize: '1.25rem' },
               fontWeight: 300, 
               marginBottom: '2rem', 
@@ -172,7 +170,7 @@ function Carousel() {
         </div>
       ))}
       
-      {/* Dots (Adjusted for better mobile placement) */}
+      {/* Dots and Arrows (omitted for brevity) */}
       <div style={{ position: 'absolute', bottom: '1.5rem', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '0.75rem', zIndex: 10 }}>
         {slideData.map((_, index) => (
           <div
@@ -186,7 +184,6 @@ function Carousel() {
         ))}
       </div>
       
-      {/* Arrows (Adjusted padding for mobile touch targets) */}
       <div style={{ position: 'absolute', top: '50%', width: '100%', display: 'flex', justifyContent: 'space-between', padding: '0 1rem', transform: 'translateY(-50%)', zIndex: 10 }}>
         <div
           className="carousel-arrow prev hover:bg-gray-100 hover:bg-opacity-40 transition-colors"
