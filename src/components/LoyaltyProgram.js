@@ -17,7 +17,7 @@ const LoyaltyProgram = () => {
   const [activeTab, setActiveTab] = useState('overview');
 
   const tiers = [
-    {
+    { 
       id: 'bronze',
       name: 'Bronze',
       minPoints: 0,

@@ -1,6 +1,8 @@
-// Export an empty products array for now. Replace with actual product data as needed.
+// src/hooks/data/products.js
+// Export a products array. Local/static images use process.env.PUBLIC_URL so CRA builds correct paths.
+
 export const products = [
-  // Diamond Jewelry
+  // Diamond Jewelry (local images using PUBLIC_URL)
   {
     id: 1,
     name: "DiamondSolitaireRing",
@@ -10,11 +12,12 @@ export const products = [
     category: "Rings",
     material: "18K White Gold",
     occasion: "Engagement",
-    description: "A timeless diamond solitaire ring featuring a brilliant-cut diamond set in elegant white gold. Perfect for engagement and special occasions.",
+    description:
+      "A timeless diamond solitaire ring featuring a brilliant-cut diamond set in elegant white gold. Perfect for engagement and special occasions.",
     images: [
-      "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&h=600&fit=crop&crop=face",
-      "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&h=600&fit=crop&crop=top"
+      process.env.PUBLIC_URL + "/images/design3.jpg",
+      process.env.PUBLIC_URL + "/images/diamond_ring_1.jpg",
+      process.env.PUBLIC_URL + "/images/design1.jpg",
     ],
     features: ["GIA Certified", "Brilliant Cut", "18K White Gold", "Lifetime Warranty"],
     sizes: ["5", "6", "7", "8", "9"],
@@ -30,10 +33,11 @@ export const products = [
     category: "Bracelets",
     material: "14K White Gold",
     occasion: "Formal",
-    description: "Elegant tennis bracelet with round brilliant diamonds set in white gold. Perfect for formal events and everyday luxury.",
+    description:
+      "Elegant tennis bracelet with round brilliant diamonds set in white gold. Perfect for formal events and everyday luxury.",
     images: [
-      "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&h=600&fit=crop&crop=face"
+      process.env.PUBLIC_URL + "/images/design2.jpg",
+      process.env.PUBLIC_URL + "/images/design4.jpg"
     ],
     features: ["Round Brilliant Diamonds", "14K White Gold", "Adjustable Length", "Secure Clasp"],
     weight: "8.2g",
@@ -48,10 +52,11 @@ export const products = [
     category: "Necklaces",
     material: "Freshwater Pearls",
     occasion: "Casual",
-    description: "Classic freshwater pearl necklace with lustrous pearls and elegant design. Suitable for both casual and formal wear.",
+    description:
+      "Classic freshwater pearl necklace with lustrous pearls and elegant design. Suitable for both casual and formal wear.",
     images: [
-      "https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=600&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=600&h=600&fit=crop&crop=face"
+      process.env.PUBLIC_URL + "/images/design5.jpg",
+      process.env.PUBLIC_URL + "/images/design6.jpg"
     ],
     features: ["Freshwater Pearls", "Sterling Silver Clasp", "18 inches", "Natural Luster"],
     weight: "12g",
@@ -65,10 +70,11 @@ export const products = [
     category: "Bracelets",
     material: "18K Yellow Gold",
     occasion: "Traditional",
-    description: "Traditional gold bangle bracelet with intricate designs. Perfect for traditional ceremonies and daily wear.",
+    description:
+      "Traditional gold bangle bracelet with intricate designs. Perfect for traditional ceremonies and daily wear.",
     images: [
-      "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&h=600&fit=crop&crop=face"
+      process.env.PUBLIC_URL + "/images/design7.jpg",
+      process.env.PUBLIC_URL + "/images/design8.jpg"
     ],
     features: ["18K Yellow Gold", "Traditional Design", "Adjustable Fit", "Hallmarked"],
     sizes: ["2.4", "2.6", "2.8", "3.0"],
@@ -83,10 +89,11 @@ export const products = [
     category: "Earrings",
     material: "14K White Gold",
     occasion: "Formal",
-    description: "Elegant sapphire earrings with round-cut sapphires set in white gold. Perfect for formal occasions.",
+    description:
+      "Elegant sapphire earrings with round-cut sapphires set in white gold. Perfect for formal occasions.",
     images: [
-      "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&h=600&fit=crop&crop=face"
+      process.env.PUBLIC_URL + "/images/earring_1.jpg",
+      process.env.PUBLIC_URL + "/images/earring_2.jpg"
     ],
     features: ["Natural Sapphires", "14K White Gold", "Post Back", "Matching Pair"],
     weight: "3.2g",
@@ -102,8 +109,8 @@ export const products = [
     occasion: "Casual",
     description: "Delicate rose gold chain necklace with modern design. Perfect for layering or wearing alone.",
     images: [
-      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&h=600&fit=crop&crop=face"
+      process.env.PUBLIC_URL + "/images/design9.jpg",
+      process.env.PUBLIC_URL + "/images/design10.jpg"
     ],
     features: ["14K Rose Gold", "Lobster Clasp", "16 inches", "Layering Style"],
     weight: "4.8g",
@@ -117,10 +124,11 @@ export const products = [
     category: "Rings",
     material: "18K Yellow Gold",
     occasion: "Special",
-    description: "Stunning emerald ring with a natural emerald center stone surrounded by diamonds in yellow gold.",
+    description:
+      "Stunning emerald ring with a natural emerald center stone surrounded by diamonds in yellow gold.",
     images: [
-      "https://images.unsplash.com/photo-1603561591411-07134e71a2b9?w=600&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1603561591411-07134e71a2b9?w=600&h=600&fit=crop&crop=face"
+      process.env.PUBLIC_URL + "/images/ring_041.jpg",
+      process.env.PUBLIC_URL + "/images/ring_042.jpg"
     ],
     features: ["Natural Emerald", "Diamond Accents", "18K Yellow Gold", "GIA Certified"],
     sizes: ["5", "6", "7", "8", "9"],
@@ -137,8 +145,8 @@ export const products = [
     occasion: "Everyday",
     description: "Classic diamond stud earrings with brilliant-cut diamonds. Perfect for everyday wear and special occasions.",
     images: [
-      "https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=600&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=600&h=600&fit=crop&crop=face"
+      process.env.PUBLIC_URL + "/images/design11.jpg",
+      process.env.PUBLIC_URL + "/images/design12.jpg"
     ],
     features: ["Brilliant Cut Diamonds", "14K White Gold", "Screw Back", "0.5ct total"],
     weight: "2.8g",
@@ -152,10 +160,11 @@ export const products = [
     category: "Necklaces",
     material: "22K Gold",
     occasion: "Traditional",
-    description: "Traditional mangalsutra necklace with black beads and gold pendant. Sacred symbol of marriage.",
+    description:
+      "Traditional mangalsutra necklace with black beads and gold pendant. Sacred symbol of marriage.",
     images: [
-      "https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=600&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=600&h=600&fit=crop&crop=face"
+      process.env.PUBLIC_URL + "/images/design13.jpg",
+      process.env.PUBLIC_URL + "/images/design14.jpg"
     ],
     features: ["22K Gold", "Black Beads", "Traditional Design", "Adjustable Length"],
     weight: "8.5g",
@@ -171,8 +180,8 @@ export const products = [
     occasion: "Casual",
     description: "Delicate silver anklet with small bells and traditional design. Perfect for casual and traditional wear.",
     images: [
-      "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&h=600&fit=crop&crop=face"
+      process.env.PUBLIC_URL + "/images/design15.jpg",
+      process.env.PUBLIC_URL + "/images/design16.jpg"
     ],
     features: ["925 Silver", "Small Bells", "Adjustable Chain", "Traditional Design"],
     weight: "6.2g",
@@ -186,10 +195,11 @@ export const products = [
     category: "Pendants",
     material: "14K Yellow Gold",
     occasion: "Special",
-    description: "Beautiful ruby pendant with natural ruby stone set in yellow gold. Perfect gift for special occasions.",
+    description:
+      "Beautiful ruby pendant with natural ruby stone set in yellow gold. Perfect gift for special occasions.",
     images: [
-      "https://images.unsplash.com/photo-1603561591411-07134e71a2b9?w=600&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1603561591411-07134e71a2b9?w=600&h=600&fit=crop&crop=face"
+      process.env.PUBLIC_URL + "/images/design17.jpg",
+      process.env.PUBLIC_URL + "/images/design18.jpg"
     ],
     features: ["Natural Ruby", "14K Yellow Gold", "18 inch Chain", "Lobster Clasp"],
     weight: "3.8g",
@@ -205,8 +215,8 @@ export const products = [
     occasion: "Wedding",
     description: "Elegant platinum wedding band with comfort fit design. Perfect for wedding ceremonies.",
     images: [
-      "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&h=600&fit=crop&crop=face"
+      process.env.PUBLIC_URL + "/images/design19.jpg",
+      process.env.PUBLIC_URL + "/images/design20.jpg"
     ],
     features: ["Platinum", "Comfort Fit", "Lifetime Warranty", "Hallmarked"],
     sizes: ["6", "7", "8", "9", "10", "11"],
@@ -223,8 +233,8 @@ export const products = [
     occasion: "Traditional",
     description: "Traditional gold nose ring with intricate designs. Perfect for traditional Indian wear.",
     images: [
-      "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&h=600&fit=crop&crop=face"
+      process.env.PUBLIC_URL + "/images/design21.jpg",
+      process.env.PUBLIC_URL + "/images/design22.jpg"
     ],
     features: ["22K Gold", "Traditional Design", "Adjustable Size", "Secure Fit"],
     weight: "2.1g",
@@ -238,10 +248,11 @@ export const products = [
     category: "Rings",
     material: "14K White Gold",
     occasion: "Engagement",
-    description: "Stunning diamond pave ring with multiple small diamonds set in white gold. Perfect for engagement.",
+    description:
+      "Stunning diamond pave ring with multiple small diamonds set in white gold. Perfect for engagement.",
     images: [
-      "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&h=600&fit=crop&crop=face"
+      process.env.PUBLIC_URL + "/images/design23.jpg",
+      process.env.PUBLIC_URL + "/images/design24.jpg"
     ],
     features: ["Pave Setting", "14K White Gold", "Multiple Diamonds", "Elegant Design"],
     sizes: ["5", "6", "7", "8", "9"],
@@ -258,8 +269,8 @@ export const products = [
     occasion: "Casual",
     description: "Elegant pearl earrings with freshwater pearls and sterling silver findings. Perfect for everyday wear.",
     images: [
-      "https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=600&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=600&h=600&fit=crop&crop=face"
+      process.env.PUBLIC_URL + "/images/design25.jpg",
+      process.env.PUBLIC_URL + "/images/design26.jpg"
     ],
     features: ["Freshwater Pearls", "Sterling Silver", "Post Back", "8mm Pearls"],
     weight: "4.5g",
@@ -275,8 +286,8 @@ export const products = [
     occasion: "Casual",
     description: "Classic gold chain necklace with elegant design. Perfect for layering or wearing alone.",
     images: [
-      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&h=600&fit=crop&crop=face"
+      process.env.PUBLIC_URL + "/images/design27.jpg",
+      process.env.PUBLIC_URL + "/images/design28.jpg"
     ],
     features: ["18K Yellow Gold", "Lobster Clasp", "18 inches", "Classic Design"],
     weight: "7.2g",
@@ -292,8 +303,8 @@ export const products = [
     occasion: "Casual",
     description: "Elegant silver bracelet with adjustable chain and secure clasp. Perfect for everyday wear.",
     images: [
-      "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&h=600&fit=crop&crop=face"
+      process.env.PUBLIC_URL + "/images/design29.jpg",
+      process.env.PUBLIC_URL + "/images/design30.jpg"
     ],
     features: ["925 Silver", "Adjustable Chain", "Secure Clasp", "7.5 inches"],
     weight: "5.8g",
@@ -309,8 +320,8 @@ export const products = [
     occasion: "Casual",
     description: "Beautiful garnet ring with deep red stone set in yellow gold. Perfect for casual and formal wear.",
     images: [
-      "https://images.unsplash.com/photo-1603561591411-07134e71a2b9?w=600&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1603561591411-07134e71a2b9?w=600&h=600&fit=crop&crop=face"
+      process.env.PUBLIC_URL + "/images/design31.jpg",
+      process.env.PUBLIC_URL + "/images/design32.jpg"
     ],
     features: ["Natural Garnet", "14K Yellow Gold", "Classic Setting", "6mm Stone"],
     sizes: ["5", "6", "7", "8", "9"],
@@ -327,8 +338,8 @@ export const products = [
     occasion: "Casual",
     description: "Classic gold hoop earrings with elegant design. Perfect for everyday wear and special occasions.",
     images: [
-      "https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=600&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=600&h=600&fit=crop&crop=face"
+      process.env.PUBLIC_URL + "/images/design33.jpg",
+      process.env.PUBLIC_URL + "/images/design34.jpg"
     ],
     features: ["14K Yellow Gold", "Hoop Design", "Secure Closure", "20mm diameter"],
     weight: "4.2g",
@@ -344,16 +355,16 @@ export const products = [
     occasion: "Formal",
     description: "Stunning diamond necklace with multiple diamonds set in white gold. Perfect for formal events.",
     images: [
-      "https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=600&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=600&h=600&fit=crop&crop=face"
+      process.env.PUBLIC_URL + "/images/design35.jpg",
+      process.env.PUBLIC_URL + "/images/design36.jpg"
     ],
     features: ["Multiple Diamonds", "14K White Gold", "Adjustable Length", "Lobster Clasp"],
     weight: "6.8g",
     dimensions: "16-18 inches",
     dateAdded: "2024-02-03"
   },
-  // --- AUTO-GENERATED MASSIVE JEWELRY PRODUCT LIST ---
-  // Adds 100+ diverse jewelry items for all categories
+
+  // --- AUTO-GENERATED MASSIVE JEWELRY PRODUCT LIST (keeps external placeholders) ---
   ...Array.from({ length: 100 }, (_, i) => {
     const categories = [
       'Rings', 'Necklaces', 'Earrings', 'Bracelets', 'Pendants', 'Anklets', 'Nose Rings', 'Bangles', 'Chains', 'Mangalsutra', 'Toe Rings', 'Brooches', 'Cufflinks', 'Gemstone', 'Diamond', 'Gold', 'Silver', 'Platinum', 'Kids', 'Men', 'Women'
@@ -375,8 +386,9 @@ export const products = [
       occasion: ['Casual', 'Formal', 'Engagement', 'Wedding', 'Traditional', 'Special'][i % 6],
       description: `Beautiful ${category.toLowerCase()} made of ${material}, perfect for ${['everyday wear', 'special occasions', 'gifting', 'festivals', 'weddings', 'parties'][i % 6]}.`,
       images: [
-        `https://images.unsplash.com/photo-${1600000000000 + i * 1000000}-a9419f74343d?w=600&h=600&fit=crop`,
-        `https://images.unsplash.com/photo-${1600000000000 + i * 1000000}-a9419f74343d?w=600&h=600&fit=crop&crop=face`
+        // keep external placeholders for autogenerated items
+        `https://images.unsplash.com/photo-1600000000000-${i}?w=600&h=600&fit=crop`,
+        `https://images.unsplash.com/photo-1600000000000-${i}?w=600&h=600&fit=crop&crop=face`
       ],
       features: [
         material,
@@ -392,8 +404,8 @@ export const products = [
       badge: ['Best Seller', 'Popular', 'New', 'Limited', 'Exclusive', 'Trending'][i % 6]
     };
   }),
-  // --- END AUTO-GENERATED ---
-  // --- ADDITIONAL AUTO-GENERATED JEWELRY PRODUCTS ---
+
+  // --- ADDITIONAL AUTO-GENERATED PRODUCTS (external placeholders) ---
   ...Array.from({ length: 200 }, (_, i) => {
     const categories = [
       'Rings', 'Necklaces', 'Earrings', 'Bracelets', 'Pendants', 'Anklets', 'Nose Rings', 'Bangles', 'Chains', 'Mangalsutra', 'Toe Rings', 'Brooches', 'Cufflinks', 'Gemstone', 'Diamond', 'Gold', 'Silver', 'Platinum', 'Kids', 'Men', 'Women'
@@ -415,8 +427,8 @@ export const products = [
       occasion: ['Casual', 'Formal', 'Engagement', 'Wedding', 'Traditional', 'Special'][(i + 2) % 6],
       description: `Premium ${category.toLowerCase()} crafted from ${material}, ideal for ${['everyday wear', 'special occasions', 'gifting', 'festivals', 'weddings', 'parties'][(i + 2) % 6]}.`,
       images: [
-        `https://images.unsplash.com/photo-${1610000000000 + i * 1000000}-a9419f74343d?w=600&h=600&fit=crop`,
-        `https://images.unsplash.com/photo-${1610000000000 + i * 1000000}-a9419f74343d?w=600&h=600&fit=crop&crop=face`
+        `https://images.unsplash.com/photo-1610000000000-${i}?w=600&h=600&fit=crop`,
+        `https://images.unsplash.com/photo-1610000000000-${i}?w=600&h=600&fit=crop&crop=face`
       ],
       features: [
         material,
@@ -432,5 +444,4 @@ export const products = [
       badge: ['Best Seller', 'Popular', 'New', 'Limited', 'Exclusive', 'Trending'][(i + 2) % 6]
     };
   })
-  // --- END ADDITIONAL ---
 ];

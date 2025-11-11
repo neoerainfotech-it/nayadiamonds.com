@@ -1,100 +1,142 @@
 .material-carousel-wrapper {
   text-align: center;
-  margin: 80px auto;
+  margin: 60px auto;
   width: 100%;
   max-width: 1200px;
+  padding: 0 12px;
+  box-sizing: border-box;
 }
 
 .material-title {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 20px;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 700;
+  margin-bottom: 12px;
   color: #4a4a4a;
 }
 
 .material-carousel-container {
   width: 100%;
-  height: 320px; /* Increased height */
+  height: clamp(240px, 30vw, 320px);
   position: relative;
-  overflow: visible; /* Allow side cards to show */
+  overflow: visible;
   cursor: pointer;
-  margin-bottom: 40px;
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* track centers its children visually */
 .material-carousel-track {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: relative;
+  width: 100%;
   height: 100%;
   transform-style: preserve-3d;
-  transition: transform 0.5s ease-in-out;
+  pointer-events: none; /* individual cards manage pointer-events */
 }
 
+/* responsive card size: narrower on mobile */
 .material-card {
   position: absolute;
-  width: 320px;   /* Increased width */
-  height: 240px;  /* Increased height */
-  background: white;
-  border-radius: 16px;
+  left: 50%;
+  top: 50%;
+  width: min(320px, 76vw);
+  height: min(240px, 58vw);
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
-  transition: all 0.5s cubic-bezier(.4,2.08,.55,.44);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+  transition: transform 0.5s cubic-bezier(.4, .0, .2, 1), opacity 0.45s ease, z-index 0s;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   opacity: 0;
   pointer-events: none;
+  text-decoration: none;
+  color: inherit;
 }
 
 .material-card img {
   width: 100%;
-  height: 180px;
+  height: auto;
+  max-height: 68%;
   object-fit: cover;
+  display: block;
 }
 
 .material-name {
-  padding: 16px 0 8px 0;
+  padding: 12px 14px;
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #082a7b;
   background: #fff;
+  text-align: center;
 }
 
+/* Visible states */
 .material-card.center {
-  z-index: 10;
-  transform: scale(1.1) translateZ(0);
+  z-index: 30;
+  transform: translate(-50%, -50%) scale(1.06);
   opacity: 1;
   pointer-events: auto;
 }
 
 .material-card.left-1 {
-  transform: translateX(-60px) scale(0.95);
-  z-index: 5;
-  opacity: 0.85;
+  z-index: 20;
+  transform: translate(calc(-50% - 68px), -50%) scale(0.96);
+  opacity: 0.95;
   pointer-events: auto;
 }
 
 .material-card.right-1 {
-  transform: translateX(60px) scale(0.95);
-  z-index: 5;
-  opacity: 0.85;
+  z-index: 20;
+  transform: translate(calc(-50% + 68px), -50%) scale(0.96);
+  opacity: 0.95;
   pointer-events: auto;
 }
 
-.material-card.right-2 {
-  transform: translateX(130px) scale(0.85);
-  z-index: 1;
-  opacity: 0.5;
-}
-
 .material-card.left-2 {
-  transform: translateX(-130px) scale(0.85);
-  z-index: 1;
-  opacity: 0.5;
+  z-index: 10;
+  transform: translate(calc(-50% - 138px), -50%) scale(0.86);
+  opacity: 0.55;
 }
 
+.material-card.right-2 {
+  z-index: 10;
+  transform: translate(calc(-50% + 138px), -50%) scale(0.86);
+  opacity: 0.55;
+}
+
+/* hidden stays invisible */
 .material-card.hidden {
   opacity: 0;
   pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+/* small tweaks for very narrow screens */
+@media (max-width: 520px) {
+  .material-card.center {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  .material-card.left-1,
+  .material-card.right-1 {
+    transform: translate(calc(-50% - 44px), -50%) scale(0.98);
+  }
+  .material-card.left-2,
+  .material-card.right-2 {
+    transform: translate(calc(-50% + 0px), -50%) scale(0.9);
+    opacity: 0.35;
+  }
+  .material-name {
+    padding: 10px 8px;
+    font-size: 0.95rem;
+  }
+}
+
+/* optional: keyboard-accessible focus style for links */
+.material-card:focus {
+  outline: 3px solid rgba(8, 42, 123, 0.14);
+  outline-offset: 4px;
 }
