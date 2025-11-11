@@ -245,7 +245,7 @@ function Home() {
         <h2 className="section-title">Jewelry Showcase</h2>
         <div className="flex flex-col md:flex-row gap-8 items-center justify-center">
           <video controls className="rounded-xl shadow-lg w-full md:w-2/3 h-80 object-cover" poster="/hero images/ddhome.jpg">
-            <source src="/media/vamana-showcase.mp4" type="video/mp4" />
+            <source src={process.env.PUBLIC_URL +"/media/vamana-showcase.mp4"} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           <div className="text-brown-900 text-lg font-semibold">Experience the brilliance of Vamana Jewels in motion!</div>
@@ -307,14 +307,14 @@ function Home() {
               <button type="submit" className="bg-yellow-500 text-brown-900 px-6 py-2 rounded-r-lg font-semibold hover:bg-yellow-400 transition-colors">Subscribe</button>
             </form>
           </div>
-          <img src="/images/design10.jpg" alt="Newsletter" className="rounded-lg shadow w-48 h-32 object-cover" />
+          <img src={process.env.PUBLIC_URL +"/images/design10.jpg"} alt="Newsletter" className="rounded-lg shadow w-48 h-32 object-cover" />
         </div>
       </section>
       {/* Expanded Home Content: Banners, Stories, Testimonials, More */}
       <section className="home-section">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8 items-center mb-12">
-            <img src="/public/images/ring_059.jpg" alt="Vamana Jewels Banner" className="rounded-xl shadow-lg w-full h-80 object-cover" />
+            <img src={process.env.PUBLIC_URL +"/public/images/ring_059.jpg"} alt="Vamana Jewels Banner" className="rounded-xl shadow-lg w-full h-80 object-cover" />
             <div>
               <h3 className="text-2xl font-bold text-brown-900 mb-4">Why Choose Vamana Jewels?</h3>
               <ul className="list-disc pl-6 text-brown-700 space-y-2">

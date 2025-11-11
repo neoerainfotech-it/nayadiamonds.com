@@ -201,7 +201,7 @@ const Collections = () => {
       <div className="relative min-h-[420px] flex items-center justify-center overflow-hidden bg-gradient-to-r from-[#2d1600] via-[#6B1B17] to-[#FFD700]">
         {/* Background Image with dark overlay */}
         <img
-          src="/images/design1.jpg"
+          src={process.env.PUBLIC_URL +"/images/design1.jpg"}
           alt="Jewelry Hero"
           className="absolute inset-0 w-full h-full object-cover opacity-60 z-0"
         />

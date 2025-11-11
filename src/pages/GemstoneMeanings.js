@@ -3,7 +3,7 @@ import React from 'react';
 const GemstoneMeanings = () => (
   <div className="container mx-auto py-8 px-4">
     <h1 className="text-3xl font-bold mb-4">Gemstone Meanings</h1>
-    <img src="/images/design16.jpg" alt="Gemstone Meanings" className="mb-6 rounded-lg shadow w-full max-w-2xl mx-auto" />
+    <img src={process.env.PUBLIC_URL +"/images/design16.jpg"} alt="Gemstone Meanings" className="mb-6 rounded-lg shadow w-full max-w-2xl mx-auto" />
     <p className="mb-4">
       Learn about the symbolism and benefits of popular gemstones. Each gemstone carries its own unique story, energy, and significance.
     </p>

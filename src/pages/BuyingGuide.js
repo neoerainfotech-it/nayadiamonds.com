@@ -3,7 +3,7 @@ import React from 'react';
 const BuyingGuide = () => (
   <div className="container mx-auto py-8 px-4">
     <h1 className="text-3xl font-bold mb-4">Jewelry Buying Guide</h1>
-    <img src="/images/design13.jpg" alt="Jewelry Buying Guide" className="mb-6 rounded-lg shadow w-full max-w-2xl mx-auto" />
+    <img src={process.env.PUBLIC_URL +"/images/design13.jpg"} alt="Jewelry Buying Guide" className="mb-6 rounded-lg shadow w-full max-w-2xl mx-auto" />
     <p className="mb-4">
       Everything you need to know before buying gold, diamond, or gemstone jewelry. Make informed decisions with our expert tips.
     </p>
