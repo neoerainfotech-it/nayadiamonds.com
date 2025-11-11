@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/nayadiamonds.com/static/css/main.1c916d3f.css",
-    "main.js": "/nayadiamonds.com/static/js/main.a1a3a8da.js",
+    "main.css": "/nayadiamonds.com/static/css/main.9dbefe1e.css",
+    "main.js": "/nayadiamonds.com/static/js/main.7b4f5632.js",
     "static/js/488.6b857299.chunk.js": "/nayadiamonds.com/static/js/488.6b857299.chunk.js",
     "static/media/slick.svg": "/nayadiamonds.com/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/nayadiamonds.com/static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/slick.ttf": "/nayadiamonds.com/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/nayadiamonds.com/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/nayadiamonds.com/index.html",
-    "main.1c916d3f.css.map": "/nayadiamonds.com/static/css/main.1c916d3f.css.map",
-    "main.a1a3a8da.js.map": "/nayadiamonds.com/static/js/main.a1a3a8da.js.map",
+    "main.9dbefe1e.css.map": "/nayadiamonds.com/static/css/main.9dbefe1e.css.map",
+    "main.7b4f5632.js.map": "/nayadiamonds.com/static/js/main.7b4f5632.js.map",
     "488.6b857299.chunk.js.map": "/nayadiamonds.com/static/js/488.6b857299.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1c916d3f.css",
-    "static/js/main.a1a3a8da.js"
+    "static/css/main.9dbefe1e.css",
+    "static/js/main.7b4f5632.js"
   ]
 }
